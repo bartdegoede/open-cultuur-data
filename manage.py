@@ -7,8 +7,6 @@ import gzip
 from hashlib import sha1
 import os
 import requests
-import sys
-import time
 from urlparse import urljoin
 
 import click
@@ -282,10 +280,10 @@ def available_indices():
 
     for index in indices.strip().split('\n'):
         index = index.split()
-        if u'resolver' not in index[1] and u'combined_index' not in index[1]:
-            click.secho('%s (%s docs, %s)' % (index[1], index[4], index[6]),
+        if u'resolver' not in index[2] and u'combined_index' not in index[2]:
+            click.secho('%s (%s docs, %s)' % (index[2], index[5], index[7]),
                         fg='green')
-            available.append(index[1])
+            available.append(index[2])
 
     return available
 
